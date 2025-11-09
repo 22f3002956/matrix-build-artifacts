@@ -15,30 +15,26 @@ jobs:
         node-version: [14, 16, 18]
 
     steps:
-      # Step 1: Checkout code
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # Required identifier step
       - name: matrix-47f5aa7
         run: echo "Building for Node version ${{ matrix.node-version }}"
 
-      # Install Node (optional but realistic)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Generate an artifact file that is NOT empty
       - name: Generate build artifact
         run: |
           echo "Build output for Node version ${{ matrix.node-version }}" > output.txt
           echo "Timestamp: $(date)" >> output.txt
-          echo "Runner: ${{ runner.os }}" >> output.txt
+          echo "Runner OS: ${{ runner.os }}" >> output.txt
 
-      # Upload the artifact with required prefix
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: build-47f5aa7-node${{ matrix.node-version }}
           path: output.txt
+
