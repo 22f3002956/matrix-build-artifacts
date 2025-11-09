@@ -1,2 +1,5 @@
-# matrix-build-artifacts
-GitHub Actions matrix build with artifacts demo
+# Matrix Build with Artifacts
+
+This repo demonstrates a GitHub Actions matrix build with artifact upload.
+
+Contact: yourname@example.com
